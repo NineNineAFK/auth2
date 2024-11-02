@@ -12,7 +12,7 @@ router.get(
   "/google/callback/login",
   passport.authenticate("google-login", { failureRedirect: "/user/signup",  failureMessage: "Email not found, please signup." }),
   (req, res) => {
-    res.redirect("http://localhost:5173/home");
+    res.redirect("https://auth2-ten.vercel.app/home");
   }
 );
 
@@ -27,7 +27,7 @@ router.get("/logout", (req, res, next) => {
       return next(err);
     }
     res.clearCookie("uid"); // Clear the JWT cookie
-    res.redirect("/open");
+    res.redirect("https://auth2-ten.vercel.app/open");
   });
 });
 

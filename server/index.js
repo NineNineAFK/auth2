@@ -10,7 +10,7 @@ const passport = require("./config/passport");
 
 // CORS Configuration
 app.use(cors({
-  origin: 'http://localhost:5173', // Frontend URL
+  origin: 'https://auth2-ten.vercel.app', // Frontend URL
   credentials: true, // Allow credentials such as cookies to be sent
 }));
 
@@ -49,4 +49,4 @@ app.set("views", path.resolve("./views"));
 const{connectMongoDB}= require('./connect')
 connectMongoDB('mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3');
 
-app.listen(3000);
+//app.listen(3000);
