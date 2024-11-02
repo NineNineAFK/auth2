@@ -14,7 +14,7 @@ const HomePage = () => {
       credentials: 'include', // Include cookies for authentication
     })
       .then(response => {
-        if (response.status === 200) {
+        if (response.status === 304) {
           // User is authenticated
           fetch(`${import.meta.env.VITE_API_URL}/home/userinfo`, {
             method: 'GET',
