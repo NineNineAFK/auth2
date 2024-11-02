@@ -48,5 +48,4 @@ app.set("views", path.resolve("./views"));
 
 const{connectMongoDB}= require('./connect')
 connectMongoDB('mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3');
-
-//app.listen(3000);
+app.listen(3000);
