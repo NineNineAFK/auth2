@@ -3,7 +3,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import OpenHomepage from './components/OpenHomepage';
 import HomePage from './components/HomePage';
-import GoogleAuth from './components/GoogleAuth';
+import GoogleAuth from './components/googleAuth';
 
 function App() {
   return (
