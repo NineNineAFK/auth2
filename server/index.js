@@ -3,6 +3,7 @@ const app= express();
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const cors = require("cors"); 
 const {restrictToLoggedInUserOnly} = require("./middlewares/auth");
 
@@ -25,13 +26,18 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());
 
+// Configure session with MongoDB store
 app.use(
-    session({
-      secret: "Aaditya@3737",
-      resave: false,
-      saveUninitialized: false,
-    })
-  );
+  session({
+    secret: "Aaditya@3737",
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
+      collectionName: 'sessions', // Optional, specify the collection name for sessions
+    }),
+  })
+);
 
 app.use(passport.initialize());
 app.use(passport.session());
