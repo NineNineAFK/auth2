@@ -40,7 +40,7 @@ app.use(
       maxAge: 24 * 60 * 60 * 1000,   // Session expires in 1 day
     },
     store: MongoStore.create({
-     // mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
+      mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
       collectionName: 'sessions', // Optional, specify the collection name for sessions
     }),
   })
@@ -50,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 
-app.use("/home", restrictToLoggedInUserOnly, staticRouter);
+//app.use("/home", restrictToLoggedInUserOnly, staticRouter);
 
 app.use("/auth", authRouter);
 app.use("/open", openRouter);
@@ -60,5 +60,5 @@ app.set("views", path.resolve("./views"));
 
 
 const{connectMongoDB}= require('./connect')
-connectMongoDB('mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3');
+connectMongoDB(mongoUrl);
 app.listen(3000);
