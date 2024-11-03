@@ -29,6 +29,7 @@ app.use(cookieParser());
 // Configure session with MongoDB store
 app.use(
   session({
+    name: 'connect.sid',
     secret: "Aaditya@3737",
     resave: false,
     saveUninitialized: false,
@@ -39,7 +40,7 @@ app.use(
       maxAge: 24 * 60 * 60 * 1000,   // Session expires in 1 day
     },
     store: MongoStore.create({
-      mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
+     // mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
       collectionName: 'sessions', // Optional, specify the collection name for sessions
     }),
   })
