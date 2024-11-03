@@ -32,6 +32,12 @@ app.use(
     secret: "Aaditya@3737",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      httpOnly: true,
+      secure: true,                  // Ensures cookies are only sent over HTTPS
+      sameSite: 'none',               // Allows cross-origin cookies
+      maxAge: 24 * 60 * 60 * 1000,   // Session expires in 1 day
+    },
     store: MongoStore.create({
       mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
       collectionName: 'sessions', // Optional, specify the collection name for sessions
