@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cors = require("cors"); 
-const {restrictToLoggedInUserOnly} = require("./middlewares/auth");
+//const {restrictToLoggedInUserOnly} = require("./middlewares/auth");
 
 const passport = require("./config/passport");
 
