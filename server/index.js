@@ -26,6 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cookieParser());
 
+
+const mongoUrl = 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3'
+
 // Configure session with MongoDB store
 app.use(
   session({
@@ -40,7 +43,7 @@ app.use(
       maxAge: 24 * 60 * 60 * 1000,   // Session expires in 1 day
     },
     store: MongoStore.create({
-      mongoUrl: 'mongodb+srv://Aaditya:admin@cluster0.kxn151h.mongodb.net/D3', // MongoDB connection string
+      mongoUrl: mongoUrl, // MongoDB connection string
       collectionName: 'sessions', // Optional, specify the collection name for sessions
     }),
   })
